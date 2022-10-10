@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005123021",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sediul",
+  "fields": [
+    {
+      "fieldName": "sediusocialPunctLucru",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Sediul",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "adresa",
+      "otherEntityRelationshipName": "sediu1",
+      "relationshipName": "adresa",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dovada",
+      "otherEntityRelationshipName": "sediu2",
+      "relationshipName": "dovada",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "proprietari",
+      "otherEntityRelationshipName": "sediu3",
+      "relationshipName": "proprietari",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activitatiPrincipale",
+      "otherEntityRelationshipName": "sediulx",
+      "ownerSide": true,
+      "relationshipName": "actprinc1",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "activitatiSecundare",
+      "otherEntityRelationshipName": "sediuly",
+      "ownerSide": true,
+      "relationshipName": "actprinc2",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "srl",
+      "otherEntityRelationshipName": "sediu",
+      "relationshipName": "srl4",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

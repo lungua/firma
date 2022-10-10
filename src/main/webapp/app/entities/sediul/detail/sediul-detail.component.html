@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sediul">
+      <h2 data-cy="sediulDetailsHeading"><span>Sediul</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ sediul.id }}</span>
+        </dd>
+        <dt><span>Sediusocial Punct Lucru</span></dt>
+        <dd>
+          <span>{{ sediul.sediusocialPunctLucru }}</span>
+        </dd>
+        <dt><span>Actprinc 1</span></dt>
+        <dd>
+          <span *ngFor="let actprinc1 of sediul.actprinc1s; let last = last">
+            <a [routerLink]="['/activitati-principale', actprinc1.id, 'view']">{{ actprinc1.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Actprinc 2</span></dt>
+        <dd>
+          <span *ngFor="let actprinc2 of sediul.actprinc2s; let last = last">
+            <a [routerLink]="['/activitati-secundare', actprinc2.id, 'view']">{{ actprinc2.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Srl 4</span></dt>
+        <dd>
+          <div *ngIf="sediul.srl4">
+            <a [routerLink]="['/srl', sediul.srl4.id, 'view']">{{ sediul.srl4.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sediul', sediul.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

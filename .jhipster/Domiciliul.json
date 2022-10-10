@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005123015",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "domiciliul",
+  "fields": [
+    {
+      "fieldName": "adresaCI",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Domiciliul",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "asocAdmin",
+      "otherEntityRelationshipName": "domiciliul",
+      "relationshipName": "asocadmin3",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

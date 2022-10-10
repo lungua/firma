@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="dateAsociati">
+      <h2 data-cy="dateAsociatiDetailsHeading"><span>Date Asociati</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ dateAsociati.id }}</span>
+        </dd>
+        <dt><span>Nume</span></dt>
+        <dd>
+          <span>{{ dateAsociati.nume }}</span>
+        </dd>
+        <dt><span>Prenume</span></dt>
+        <dd>
+          <span>{{ dateAsociati.prenume }}</span>
+        </dd>
+        <dt><span>Telefon</span></dt>
+        <dd>
+          <span>{{ dateAsociati.telefon }}</span>
+        </dd>
+        <dt><span>Asocadmin 4</span></dt>
+        <dd>
+          <div *ngIf="dateAsociati.asocadmin4">
+            <a [routerLink]="['/asoc-admin', dateAsociati.asocadmin4.id, 'view']">{{ dateAsociati.asocadmin4.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/date-asociati', dateAsociati.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005123024",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "proprietari",
+  "fields": [
+    {
+      "fieldName": "fizicJuridic",
+      "fieldType": "FizicJuridic",
+      "fieldValues": "FIZIC,JURIDIC"
+    },
+    {
+      "fieldName": "nume",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenume",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numar",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cui",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "denumireSocietate",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Proprietari",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "sediul",
+      "otherEntityRelationshipName": "proprietari",
+      "relationshipName": "sediu3",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

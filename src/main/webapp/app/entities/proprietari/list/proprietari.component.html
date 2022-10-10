@@ -1,0 +1,148 @@
+<div>
+  <h2 id="page-heading" data-cy="ProprietariHeading">
+    <span>Proprietaris</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-proprietari"
+        [routerLink]="['/proprietari/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Proprietari </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="proprietaris?.length === 0">
+    <span>No Proprietaris found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="proprietaris && proprietaris.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fizicJuridic">
+            <div class="d-flex">
+              <span>Fizic Juridic</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nume">
+            <div class="d-flex">
+              <span>Nume</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prenume">
+            <div class="d-flex">
+              <span>Prenume</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tip">
+            <div class="d-flex">
+              <span>Tip</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="serie">
+            <div class="d-flex">
+              <span>Serie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numar">
+            <div class="d-flex">
+              <span>Numar</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cui">
+            <div class="d-flex">
+              <span>Cui</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="denumireSocietate">
+            <div class="d-flex">
+              <span>Denumire Societate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sediu3.id">
+            <div class="d-flex">
+              <span>Sediu 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proprietari of proprietaris; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/proprietari', proprietari.id, 'view']">{{ proprietari.id }}</a>
+          </td>
+          <td>{{ proprietari.fizicJuridic }}</td>
+          <td>{{ proprietari.nume }}</td>
+          <td>{{ proprietari.prenume }}</td>
+          <td>{{ proprietari.tip }}</td>
+          <td>{{ proprietari.serie }}</td>
+          <td>{{ proprietari.numar }}</td>
+          <td>{{ proprietari.cui }}</td>
+          <td>{{ proprietari.denumireSocietate }}</td>
+          <td>
+            <div *ngIf="proprietari.sediu3">
+              <a [routerLink]="['/sediul', proprietari.sediu3.id, 'view']">{{ proprietari.sediu3.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/proprietari', proprietari.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/proprietari', proprietari.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(proprietari)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

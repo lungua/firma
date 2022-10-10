@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="adresa">
+      <h2 data-cy="adresaDetailsHeading"><span>Adresa</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ adresa.id }}</span>
+        </dd>
+        <dt><span>Strada</span></dt>
+        <dd>
+          <span>{{ adresa.strada }}</span>
+        </dd>
+        <dt><span>Numarul</span></dt>
+        <dd>
+          <span>{{ adresa.numarul }}</span>
+        </dd>
+        <dt><span>Localitatea</span></dt>
+        <dd>
+          <span>{{ adresa.localitatea }}</span>
+        </dd>
+        <dt><span>Judetul</span></dt>
+        <dd>
+          <span>{{ adresa.judetul }}</span>
+        </dd>
+        <dt><span>Bloc</span></dt>
+        <dd>
+          <span>{{ adresa.bloc }}</span>
+        </dd>
+        <dt><span>Scara</span></dt>
+        <dd>
+          <span>{{ adresa.scara }}</span>
+        </dd>
+        <dt><span>Etaj</span></dt>
+        <dd>
+          <span>{{ adresa.etaj }}</span>
+        </dd>
+        <dt><span>Apartament</span></dt>
+        <dd>
+          <span>{{ adresa.apartament }}</span>
+        </dd>
+        <dt><span>Alte Detalii</span></dt>
+        <dd>
+          <span>{{ adresa.alteDetalii }}</span>
+        </dd>
+        <dt><span>Asociatie Locatari</span></dt>
+        <dd>
+          <span>{{ adresa.asociatieLocatari }}</span>
+        </dd>
+        <dt><span>Sediu 1</span></dt>
+        <dd>
+          <div *ngIf="adresa.sediu1">
+            <a [routerLink]="['/sediul', adresa.sediu1.id, 'view']">{{ adresa.sediu1.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/adresa', adresa.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

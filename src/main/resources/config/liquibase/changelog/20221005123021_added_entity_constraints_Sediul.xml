@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Sediul.
+    -->
+    <changeSet id="20221005123021-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="sediul_id"
+                                 baseTableName="rel_sediul__actprinc1"
+                                 constraintName="fk_rel_sediul__actprinc1__sediul_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sediul"/>
+
+        <addForeignKeyConstraint baseColumnNames="actprinc1_id"
+                                 baseTableName="rel_sediul__actprinc1"
+                                 constraintName="fk_rel_sediul__actprinc1__actprinc1_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activitati_principale"/>
+
+        <addForeignKeyConstraint baseColumnNames="sediul_id"
+                                 baseTableName="rel_sediul__actprinc2"
+                                 constraintName="fk_rel_sediul__actprinc2__sediul_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sediul"/>
+
+        <addForeignKeyConstraint baseColumnNames="actprinc2_id"
+                                 baseTableName="rel_sediul__actprinc2"
+                                 constraintName="fk_rel_sediul__actprinc2__actprinc2_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activitati_secundare"/>
+
+        <addForeignKeyConstraint baseColumnNames="srl4_id"
+                                 baseTableName="sediul"
+                                 constraintName="fk_sediul__srl4_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="srl"/>
+    </changeSet>
+</databaseChangeLog>

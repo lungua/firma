@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005123017",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "capital_social",
+  "fields": [
+    {
+      "fieldName": "suma",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CapitalSocial",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "srl",
+      "otherEntityRelationshipName": "capitalsocial",
+      "relationshipName": "srl1",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

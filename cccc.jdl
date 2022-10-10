@@ -1,0 +1,126 @@
+entity Srl{
+nume1 String
+nume2 String
+nume3 String
+numeSocietate String
+nuneFinal Boolean
+dataInregistrare Instant
+
+}
+
+entity AsocAdmin{
+PersoanaFizica Boolean
+asociat Boolean
+}
+entity Buletin{
+tip String
+serie String
+numar String
+cnp String maxlength(13)
+tara String
+judet String
+localitate String
+cetatenie String
+data Instant
+eliberatDe String
+}
+entity DateSocietate {
+denumire String
+cui String
+regComert String
+adresaSediu String
+}
+
+entity Domiciliul {
+adresaCI String
+}
+entity DateAsociati{
+nume String
+prenume String
+telefon String
+}
+entity CapitalSocial {
+suma String
+}
+entity AlteActivitati {
+  codCAEN String
+  denumirea String
+}
+entity ActivitatiPrincipale{
+  codCAEN String
+  denumirea String
+}
+entity ActivitatiSecundare{
+codCAEN String
+denumirea String
+}
+entity Sediul{
+	SediusocialPunctLucru Boolean
+}
+entity Adresa{
+  strada String
+  numarul String
+  localitatea String
+  judetul String
+  bloc String
+  scara String
+  etaj String
+  apartament String
+  alteDetalii String
+  asociatieLocatari Boolean
+}
+entity Dovada{
+comodatInchiriere Boolean
+durata Integer
+valoareInchiriere Integer
+valoareGarantie Integer
+moneda Moneda
+}
+entity Proprietari{
+fizicJuridic FizicJuridic
+nume String
+prenume String
+tip String
+serie String
+numar String
+cui String
+denumireSocietate String
+}
+
+enum FizicJuridic{
+FIZIC
+JURIDIC
+}
+
+enum Moneda{
+RON
+USD
+EUR
+}
+
+
+
+relationship OneToMany {
+Srl{asocadmin} to AsocAdmin{srl}
+AsocAdmin {buletin} to Buletin{asocadmin1}
+AsocAdmin {datesocietate} to DateSocietate{asocadmin2}
+AsocAdmin {domiciliul} to Domiciliul{asocadmin3}
+AsocAdmin {dateasociati} to DateAsociati{asocadmin4}
+Srl{capitalsocial} to CapitalSocial {srl1}
+Srl{alteactivitati} to AlteActivitati{srl2}
+Srl{activitatiprincipale} to ActivitatiPrincipale{srl3}
+Srl{activitatisecundare} to ActivitatiSecundare{srl5}
+Srl{sediu} to Sediul{srl4}
+Sediul{adresa} to Adresa{sediu1}
+Sediul{dovada} to Dovada{sediu2}
+Sediul{proprietari} to Proprietari{sediu3}
+
+
+}
+relationship OneToOne {
+Srl{inregistratDe(login)} to User
+}
+relationship ManyToMany {
+  Sediul{actprinc1} to ActivitatiPrincipale{sediulx}
+  Sediul{actprinc2} to ActivitatiSecundare{sediuly}
+}

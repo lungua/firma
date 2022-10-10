@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="srl">
+      <h2 data-cy="srlDetailsHeading"><span>Srl</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ srl.id }}</span>
+        </dd>
+        <dt><span>Nume 1</span></dt>
+        <dd>
+          <span>{{ srl.nume1 }}</span>
+        </dd>
+        <dt><span>Nume 2</span></dt>
+        <dd>
+          <span>{{ srl.nume2 }}</span>
+        </dd>
+        <dt><span>Nume 3</span></dt>
+        <dd>
+          <span>{{ srl.nume3 }}</span>
+        </dd>
+        <dt><span>Nume Societate</span></dt>
+        <dd>
+          <span>{{ srl.numeSocietate }}</span>
+        </dd>
+        <dt><span>Nune Final</span></dt>
+        <dd>
+          <span>{{ srl.nuneFinal }}</span>
+        </dd>
+        <dt><span>Data Inregistrare</span></dt>
+        <dd>
+          <span>{{ srl.dataInregistrare | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Inregistrat De</span></dt>
+        <dd>
+          <span>{{ srl.inregistratDe?.login }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/srl', srl.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

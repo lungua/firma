@@ -1,0 +1,65 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005123013",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "buletin",
+  "fields": [
+    {
+      "fieldName": "tip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numar",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cnp",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "13"
+    },
+    {
+      "fieldName": "tara",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "judet",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "localitate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cetatenie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "data",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "eliberatDe",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Buletin",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "asocAdmin",
+      "otherEntityRelationshipName": "buletin",
+      "relationshipName": "asocadmin1",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

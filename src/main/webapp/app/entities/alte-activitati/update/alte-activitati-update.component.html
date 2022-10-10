@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-alte-activitati-heading" data-cy="AlteActivitatiCreateUpdateHeading">Create or edit a Alte Activitati</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_codCAEN">Cod CAEN</label>
+          <input type="text" class="form-control" name="codCAEN" id="field_codCAEN" data-cy="codCAEN" formControlName="codCAEN" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_denumirea">Denumirea</label>
+          <input type="text" class="form-control" name="denumirea" id="field_denumirea" data-cy="denumirea" formControlName="denumirea" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_srl2">Srl 2</label>
+          <select class="form-control" id="field_srl2" data-cy="srl2" name="srl2" formControlName="srl2" [compareWith]="compareSrl">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="srlOption" *ngFor="let srlOption of srlsSharedCollection">{{ srlOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

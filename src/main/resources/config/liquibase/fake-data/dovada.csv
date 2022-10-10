@@ -1,0 +1,11 @@
+id;comodat_inchiriere;durata;valoare_inchiriere;valoare_garantie;moneda
+1;false;8031;98233;22117;EUR
+2;true;10271;27423;32882;RON
+3;false;74409;20346;48547;USD
+4;false;63680;48193;29424;EUR
+5;true;95172;28139;47557;USD
+6;true;83532;30581;83272;USD
+7;true;15317;76240;12798;USD
+8;false;45537;34323;864;RON
+9;true;56490;80578;78545;RON
+10;false;9874;30806;47625;RON

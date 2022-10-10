@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-dovada-heading" data-cy="DovadaCreateUpdateHeading">Create or edit a Dovada</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_comodatInchiriere">Comodat Inchiriere</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="comodatInchiriere"
+            id="field_comodatInchiriere"
+            data-cy="comodatInchiriere"
+            formControlName="comodatInchiriere"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_durata">Durata</label>
+          <input type="number" class="form-control" name="durata" id="field_durata" data-cy="durata" formControlName="durata" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_valoareInchiriere">Valoare Inchiriere</label>
+          <input
+            type="number"
+            class="form-control"
+            name="valoareInchiriere"
+            id="field_valoareInchiriere"
+            data-cy="valoareInchiriere"
+            formControlName="valoareInchiriere"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_valoareGarantie">Valoare Garantie</label>
+          <input
+            type="number"
+            class="form-control"
+            name="valoareGarantie"
+            id="field_valoareGarantie"
+            data-cy="valoareGarantie"
+            formControlName="valoareGarantie"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_moneda">Moneda</label>
+          <select class="form-control" name="moneda" formControlName="moneda" id="field_moneda" data-cy="moneda">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let moneda of monedaValues" [value]="moneda">moneda</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sediu2">Sediu 2</label>
+          <select
+            class="form-control"
+            id="field_sediu2"
+            data-cy="sediu2"
+            name="sediu2"
+            formControlName="sediu2"
+            [compareWith]="compareSediul"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="sediulOption" *ngFor="let sediulOption of sediulsSharedCollection">{{ sediulOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

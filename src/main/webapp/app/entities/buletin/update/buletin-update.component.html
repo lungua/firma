@@ -1,0 +1,126 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-buletin-heading" data-cy="BuletinCreateUpdateHeading">Create or edit a Buletin</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tip">Tip</label>
+          <input type="text" class="form-control" name="tip" id="field_tip" data-cy="tip" formControlName="tip" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_serie">Serie</label>
+          <input type="text" class="form-control" name="serie" id="field_serie" data-cy="serie" formControlName="serie" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numar">Numar</label>
+          <input type="text" class="form-control" name="numar" id="field_numar" data-cy="numar" formControlName="numar" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_cnp">Cnp</label>
+          <input type="text" class="form-control" name="cnp" id="field_cnp" data-cy="cnp" formControlName="cnp" />
+          <div *ngIf="editForm.get('cnp')!.invalid && (editForm.get('cnp')!.dirty || editForm.get('cnp')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cnp')?.errors?.maxlength">
+              This field cannot be longer than 13 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tara">Tara</label>
+          <input type="text" class="form-control" name="tara" id="field_tara" data-cy="tara" formControlName="tara" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_judet">Judet</label>
+          <input type="text" class="form-control" name="judet" id="field_judet" data-cy="judet" formControlName="judet" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_localitate">Localitate</label>
+          <input
+            type="text"
+            class="form-control"
+            name="localitate"
+            id="field_localitate"
+            data-cy="localitate"
+            formControlName="localitate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_cetatenie">Cetatenie</label>
+          <input type="text" class="form-control" name="cetatenie" id="field_cetatenie" data-cy="cetatenie" formControlName="cetatenie" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_data">Data</label>
+          <div class="d-flex">
+            <input
+              id="field_data"
+              data-cy="data"
+              type="datetime-local"
+              class="form-control"
+              name="data"
+              formControlName="data"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_eliberatDe">Eliberat De</label>
+          <input
+            type="text"
+            class="form-control"
+            name="eliberatDe"
+            id="field_eliberatDe"
+            data-cy="eliberatDe"
+            formControlName="eliberatDe"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_asocadmin1">Asocadmin 1</label>
+          <select
+            class="form-control"
+            id="field_asocadmin1"
+            data-cy="asocadmin1"
+            name="asocadmin1"
+            formControlName="asocadmin1"
+            [compareWith]="compareAsocAdmin"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="asocAdminOption" *ngFor="let asocAdminOption of asocAdminsSharedCollection">{{ asocAdminOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

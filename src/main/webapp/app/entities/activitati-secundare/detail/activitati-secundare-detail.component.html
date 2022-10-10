@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="activitatiSecundare">
+      <h2 data-cy="activitatiSecundareDetailsHeading"><span>Activitati Secundare</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ activitatiSecundare.id }}</span>
+        </dd>
+        <dt><span>Cod CAEN</span></dt>
+        <dd>
+          <span>{{ activitatiSecundare.codCAEN }}</span>
+        </dd>
+        <dt><span>Denumirea</span></dt>
+        <dd>
+          <span>{{ activitatiSecundare.denumirea }}</span>
+        </dd>
+        <dt><span>Srl 5</span></dt>
+        <dd>
+          <div *ngIf="activitatiSecundare.srl5">
+            <a [routerLink]="['/srl', activitatiSecundare.srl5.id, 'view']">{{ activitatiSecundare.srl5.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/activitati-secundare', activitatiSecundare.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

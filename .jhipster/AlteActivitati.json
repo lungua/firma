@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005123018",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "alte_activitati",
+  "fields": [
+    {
+      "fieldName": "codCAEN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "denumirea",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AlteActivitati",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "srl",
+      "otherEntityRelationshipName": "alteactivitati",
+      "relationshipName": "srl2",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

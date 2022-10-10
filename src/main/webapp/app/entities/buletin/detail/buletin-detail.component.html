@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="buletin">
+      <h2 data-cy="buletinDetailsHeading"><span>Buletin</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ buletin.id }}</span>
+        </dd>
+        <dt><span>Tip</span></dt>
+        <dd>
+          <span>{{ buletin.tip }}</span>
+        </dd>
+        <dt><span>Serie</span></dt>
+        <dd>
+          <span>{{ buletin.serie }}</span>
+        </dd>
+        <dt><span>Numar</span></dt>
+        <dd>
+          <span>{{ buletin.numar }}</span>
+        </dd>
+        <dt><span>Cnp</span></dt>
+        <dd>
+          <span>{{ buletin.cnp }}</span>
+        </dd>
+        <dt><span>Tara</span></dt>
+        <dd>
+          <span>{{ buletin.tara }}</span>
+        </dd>
+        <dt><span>Judet</span></dt>
+        <dd>
+          <span>{{ buletin.judet }}</span>
+        </dd>
+        <dt><span>Localitate</span></dt>
+        <dd>
+          <span>{{ buletin.localitate }}</span>
+        </dd>
+        <dt><span>Cetatenie</span></dt>
+        <dd>
+          <span>{{ buletin.cetatenie }}</span>
+        </dd>
+        <dt><span>Data</span></dt>
+        <dd>
+          <span>{{ buletin.data | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Eliberat De</span></dt>
+        <dd>
+          <span>{{ buletin.eliberatDe }}</span>
+        </dd>
+        <dt><span>Asocadmin 1</span></dt>
+        <dd>
+          <div *ngIf="buletin.asocadmin1">
+            <a [routerLink]="['/asoc-admin', buletin.asocadmin1.id, 'view']">{{ buletin.asocadmin1.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/buletin', buletin.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ActivitatiSecundare.
+    -->
+    <changeSet id="20221005123020-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="srl5_id"
+                                 baseTableName="activitati_secundare"
+                                 constraintName="fk_activitati_secundare__srl5_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="srl"/>
+    </changeSet>
+</databaseChangeLog>
