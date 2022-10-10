@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-date-societate-heading" data-cy="DateSocietateCreateUpdateHeading">Create or edit a Date Societate</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_denumire">Denumire</label>
+          <input type="text" class="form-control" name="denumire" id="field_denumire" data-cy="denumire" formControlName="denumire" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_cui">Cui</label>
+          <input type="text" class="form-control" name="cui" id="field_cui" data-cy="cui" formControlName="cui" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_regComert">Reg Comert</label>
+          <input type="text" class="form-control" name="regComert" id="field_regComert" data-cy="regComert" formControlName="regComert" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_adresaSediu">Adresa Sediu</label>
+          <input
+            type="text"
+            class="form-control"
+            name="adresaSediu"
+            id="field_adresaSediu"
+            data-cy="adresaSediu"
+            formControlName="adresaSediu"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_asocadmin2">Asocadmin 2</label>
+          <select
+            class="form-control"
+            id="field_asocadmin2"
+            data-cy="asocadmin2"
+            name="asocadmin2"
+            formControlName="asocadmin2"
+            [compareWith]="compareAsocAdmin"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="asocAdminOption" *ngFor="let asocAdminOption of asocAdminsSharedCollection">{{ asocAdminOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

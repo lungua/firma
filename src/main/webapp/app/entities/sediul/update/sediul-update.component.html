@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-sediul-heading" data-cy="SediulCreateUpdateHeading">Create or edit a Sediul</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sediusocialPunctLucru">Sediusocial Punct Lucru</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sediusocialPunctLucru"
+            id="field_sediusocialPunctLucru"
+            data-cy="sediusocialPunctLucru"
+            formControlName="sediusocialPunctLucru"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_actprinc1s">Actprinc 1</label>
+          <select
+            class="form-control"
+            id="field_actprinc1s"
+            data-cy="actprinc1"
+            multiple
+            name="actprinc1s"
+            formControlName="actprinc1s"
+            [compareWith]="compareActivitatiPrincipale"
+          >
+            <option [ngValue]="activitatiPrincipaleOption" *ngFor="let activitatiPrincipaleOption of activitatiPrincipalesSharedCollection">
+              {{ activitatiPrincipaleOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_actprinc2s">Actprinc 2</label>
+          <select
+            class="form-control"
+            id="field_actprinc2s"
+            data-cy="actprinc2"
+            multiple
+            name="actprinc2s"
+            formControlName="actprinc2s"
+            [compareWith]="compareActivitatiSecundare"
+          >
+            <option [ngValue]="activitatiSecundareOption" *ngFor="let activitatiSecundareOption of activitatiSecundaresSharedCollection">
+              {{ activitatiSecundareOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_srl4">Srl 4</label>
+          <select class="form-control" id="field_srl4" data-cy="srl4" name="srl4" formControlName="srl4" [compareWith]="compareSrl">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="srlOption" *ngFor="let srlOption of srlsSharedCollection">{{ srlOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

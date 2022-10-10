@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112021",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activitati_principale",
+  "fields": [
+    {
+      "fieldName": "codCAEN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "denumirea",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivitatiPrincipale",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "srl",
+      "otherEntityRelationshipName": "activitatiprincipale",
+      "relationshipName": "srl3",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sediul",
+      "otherEntityRelationshipName": "actprinc1",
+      "ownerSide": false,
+      "relationshipName": "sediulx",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

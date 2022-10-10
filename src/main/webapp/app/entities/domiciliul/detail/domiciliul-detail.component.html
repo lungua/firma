@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="domiciliul">
+      <h2 data-cy="domiciliulDetailsHeading"><span>Domiciliul</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ domiciliul.id }}</span>
+        </dd>
+        <dt><span>Adresa CI</span></dt>
+        <dd>
+          <span>{{ domiciliul.adresaCI }}</span>
+        </dd>
+        <dt><span>Asocadmin 3</span></dt>
+        <dd>
+          <div *ngIf="domiciliul.asocadmin3">
+            <a [routerLink]="['/asoc-admin', domiciliul.asocadmin3.id, 'view']">{{ domiciliul.asocadmin3.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/domiciliul', domiciliul.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

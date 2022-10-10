@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112016",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "date_societate",
+  "fields": [
+    {
+      "fieldName": "denumire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cui",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "regComert",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresaSediu",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DateSocietate",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "asocAdmin",
+      "otherEntityRelationshipName": "datesocietate",
+      "relationshipName": "asocadmin2",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="proprietari">
+      <h2 data-cy="proprietariDetailsHeading"><span>Proprietari</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ proprietari.id }}</span>
+        </dd>
+        <dt><span>Fizic Juridic</span></dt>
+        <dd>
+          <span>{{ proprietari.fizicJuridic }}</span>
+        </dd>
+        <dt><span>Nume</span></dt>
+        <dd>
+          <span>{{ proprietari.nume }}</span>
+        </dd>
+        <dt><span>Prenume</span></dt>
+        <dd>
+          <span>{{ proprietari.prenume }}</span>
+        </dd>
+        <dt><span>Tip</span></dt>
+        <dd>
+          <span>{{ proprietari.tip }}</span>
+        </dd>
+        <dt><span>Serie</span></dt>
+        <dd>
+          <span>{{ proprietari.serie }}</span>
+        </dd>
+        <dt><span>Numar</span></dt>
+        <dd>
+          <span>{{ proprietari.numar }}</span>
+        </dd>
+        <dt><span>Cui</span></dt>
+        <dd>
+          <span>{{ proprietari.cui }}</span>
+        </dd>
+        <dt><span>Denumire Societate</span></dt>
+        <dd>
+          <span>{{ proprietari.denumireSocietate }}</span>
+        </dd>
+        <dt><span>Sediu 3</span></dt>
+        <dd>
+          <div *ngIf="proprietari.sediu3">
+            <a [routerLink]="['/sediul', proprietari.sediu3.id, 'view']">{{ proprietari.sediu3.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/proprietari', proprietari.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

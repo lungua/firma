@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="CapitalSocialHeading">
+    <span>Capital Socials</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-capital-social"
+        [routerLink]="['/capital-social/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Capital Social </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="capitalSocials?.length === 0">
+    <span>No Capital Socials found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="capitalSocials && capitalSocials.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="suma">
+            <div class="d-flex">
+              <span>Suma</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="srl1.id">
+            <div class="d-flex">
+              <span>Srl 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let capitalSocial of capitalSocials; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/capital-social', capitalSocial.id, 'view']">{{ capitalSocial.id }}</a>
+          </td>
+          <td>{{ capitalSocial.suma }}</td>
+          <td>
+            <div *ngIf="capitalSocial.srl1">
+              <a [routerLink]="['/srl', capitalSocial.srl1.id, 'view']">{{ capitalSocial.srl1.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/capital-social', capitalSocial.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/capital-social', capitalSocial.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(capitalSocial)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

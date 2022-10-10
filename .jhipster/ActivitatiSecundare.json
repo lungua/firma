@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112022",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activitati_secundare",
+  "fields": [
+    {
+      "fieldName": "codCAEN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "denumirea",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivitatiSecundare",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "srl",
+      "otherEntityRelationshipName": "activitatisecundare",
+      "relationshipName": "srl5",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sediul",
+      "otherEntityRelationshipName": "actprinc2",
+      "ownerSide": false,
+      "relationshipName": "sediuly",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

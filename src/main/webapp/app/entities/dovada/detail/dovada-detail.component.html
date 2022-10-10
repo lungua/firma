@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="dovada">
+      <h2 data-cy="dovadaDetailsHeading"><span>Dovada</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ dovada.id }}</span>
+        </dd>
+        <dt><span>Comodat Inchiriere</span></dt>
+        <dd>
+          <span>{{ dovada.comodatInchiriere }}</span>
+        </dd>
+        <dt><span>Durata</span></dt>
+        <dd>
+          <span>{{ dovada.durata }}</span>
+        </dd>
+        <dt><span>Valoare Inchiriere</span></dt>
+        <dd>
+          <span>{{ dovada.valoareInchiriere }}</span>
+        </dd>
+        <dt><span>Valoare Garantie</span></dt>
+        <dd>
+          <span>{{ dovada.valoareGarantie }}</span>
+        </dd>
+        <dt><span>Moneda</span></dt>
+        <dd>
+          <span>{{ dovada.moneda }}</span>
+        </dd>
+        <dt><span>Sediu 2</span></dt>
+        <dd>
+          <div *ngIf="dovada.sediu2">
+            <a [routerLink]="['/sediul', dovada.sediu2.id, 'view']">{{ dovada.sediu2.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dovada', dovada.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

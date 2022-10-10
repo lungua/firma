@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112025",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "dovada",
+  "fields": [
+    {
+      "fieldName": "comodatInchiriere",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "durata",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "valoareInchiriere",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "valoareGarantie",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "moneda",
+      "fieldType": "Moneda",
+      "fieldValues": "RON,USD,EUR"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Dovada",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "sediul",
+      "otherEntityRelationshipName": "dovada",
+      "relationshipName": "sediu2",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

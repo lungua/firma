@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="dateSocietate">
+      <h2 data-cy="dateSocietateDetailsHeading"><span>Date Societate</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ dateSocietate.id }}</span>
+        </dd>
+        <dt><span>Denumire</span></dt>
+        <dd>
+          <span>{{ dateSocietate.denumire }}</span>
+        </dd>
+        <dt><span>Cui</span></dt>
+        <dd>
+          <span>{{ dateSocietate.cui }}</span>
+        </dd>
+        <dt><span>Reg Comert</span></dt>
+        <dd>
+          <span>{{ dateSocietate.regComert }}</span>
+        </dd>
+        <dt><span>Adresa Sediu</span></dt>
+        <dd>
+          <span>{{ dateSocietate.adresaSediu }}</span>
+        </dd>
+        <dt><span>Asocadmin 2</span></dt>
+        <dd>
+          <div *ngIf="dateSocietate.asocadmin2">
+            <a [routerLink]="['/asoc-admin', dateSocietate.asocadmin2.id, 'view']">{{ dateSocietate.asocadmin2.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/date-societate', dateSocietate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

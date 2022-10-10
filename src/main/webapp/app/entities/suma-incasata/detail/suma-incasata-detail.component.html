@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sumaIncasata">
+      <h2 data-cy="sumaIncasataDetailsHeading"><span>Suma Incasata</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ sumaIncasata.id }}</span>
+        </dd>
+        <dt><span>Suma Incasata</span></dt>
+        <dd>
+          <span>{{ sumaIncasata.sumaIncasata }}</span>
+        </dd>
+        <dt><span>Data Incasarii</span></dt>
+        <dd>
+          <span>{{ sumaIncasata.dataIncasarii | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Srl 5</span></dt>
+        <dd>
+          <div *ngIf="sumaIncasata.srl5">
+            <a [routerLink]="['/srl', sumaIncasata.srl5.id, 'view']">{{ sumaIncasata.srl5.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/suma-incasata', sumaIncasata.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,152 @@
+<div>
+  <h2 id="page-heading" data-cy="AdresaHeading">
+    <span>Adresas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-adresa"
+        [routerLink]="['/adresa/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Adresa </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="adresas?.length === 0">
+    <span>No Adresas found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="adresas && adresas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="strada">
+            <div class="d-flex">
+              <span>Strada</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numarul">
+            <div class="d-flex">
+              <span>Numarul</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localitatea">
+            <div class="d-flex">
+              <span>Localitatea</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="judetul">
+            <div class="d-flex">
+              <span>Judetul</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bloc">
+            <div class="d-flex">
+              <span>Bloc</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="scara">
+            <div class="d-flex">
+              <span>Scara</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="etaj">
+            <div class="d-flex">
+              <span>Etaj</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="apartament">
+            <div class="d-flex">
+              <span>Apartament</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="alteDetalii">
+            <div class="d-flex">
+              <span>Alte Detalii</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="asociatieLocatari">
+            <div class="d-flex">
+              <span>Asociatie Locatari</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sediu1.id">
+            <div class="d-flex">
+              <span>Sediu 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adresa of adresas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/adresa', adresa.id, 'view']">{{ adresa.id }}</a>
+          </td>
+          <td>{{ adresa.strada }}</td>
+          <td>{{ adresa.numarul }}</td>
+          <td>{{ adresa.localitatea }}</td>
+          <td>{{ adresa.judetul }}</td>
+          <td>{{ adresa.bloc }}</td>
+          <td>{{ adresa.scara }}</td>
+          <td>{{ adresa.etaj }}</td>
+          <td>{{ adresa.apartament }}</td>
+          <td>{{ adresa.alteDetalii }}</td>
+          <td>{{ adresa.asociatieLocatari }}</td>
+          <td>
+            <div *ngIf="adresa.sediu1">
+              <a [routerLink]="['/sediul', adresa.sediu1.id, 'view']">{{ adresa.sediu1.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/adresa', adresa.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/adresa', adresa.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(adresa)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

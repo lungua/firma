@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112013",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "suma_incasata",
+  "fields": [
+    {
+      "fieldName": "sumaIncasata",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dataIncasarii",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SumaIncasata",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "srl",
+      "otherEntityRelationshipName": "sumaincasata",
+      "relationshipName": "srl5",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

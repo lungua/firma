@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-proprietari-heading" data-cy="ProprietariCreateUpdateHeading">Create or edit a Proprietari</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_fizicJuridic">Fizic Juridic</label>
+          <select class="form-control" name="fizicJuridic" formControlName="fizicJuridic" id="field_fizicJuridic" data-cy="fizicJuridic">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let fizicJuridic of fizicJuridicValues" [value]="fizicJuridic">fizicJuridic</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_nume">Nume</label>
+          <input type="text" class="form-control" name="nume" id="field_nume" data-cy="nume" formControlName="nume" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_prenume">Prenume</label>
+          <input type="text" class="form-control" name="prenume" id="field_prenume" data-cy="prenume" formControlName="prenume" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tip">Tip</label>
+          <input type="text" class="form-control" name="tip" id="field_tip" data-cy="tip" formControlName="tip" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_serie">Serie</label>
+          <input type="text" class="form-control" name="serie" id="field_serie" data-cy="serie" formControlName="serie" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numar">Numar</label>
+          <input type="text" class="form-control" name="numar" id="field_numar" data-cy="numar" formControlName="numar" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_cui">Cui</label>
+          <input type="text" class="form-control" name="cui" id="field_cui" data-cy="cui" formControlName="cui" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_denumireSocietate">Denumire Societate</label>
+          <input
+            type="text"
+            class="form-control"
+            name="denumireSocietate"
+            id="field_denumireSocietate"
+            data-cy="denumireSocietate"
+            formControlName="denumireSocietate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sediu3">Sediu 3</label>
+          <select
+            class="form-control"
+            id="field_sediu3"
+            data-cy="sediu3"
+            name="sediu3"
+            formControlName="sediu3"
+            [compareWith]="compareSediul"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="sediulOption" *ngFor="let sediulOption of sediulsSharedCollection">{{ sediulOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

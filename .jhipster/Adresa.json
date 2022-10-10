@@ -1,0 +1,63 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112024",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "adresa",
+  "fields": [
+    {
+      "fieldName": "strada",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numarul",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "localitatea",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "judetul",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bloc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "scara",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etaj",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "apartament",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "alteDetalii",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "asociatieLocatari",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Adresa",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "sediul",
+      "otherEntityRelationshipName": "adresa",
+      "relationshipName": "sediu1",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

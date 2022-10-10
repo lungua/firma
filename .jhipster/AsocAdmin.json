@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112014",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "asoc_admin",
+  "fields": [
+    {
+      "fieldName": "persoanaFizica",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "asociat",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AsocAdmin",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "buletin",
+      "otherEntityRelationshipName": "asocadmin1",
+      "relationshipName": "buletin",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dateSocietate",
+      "otherEntityRelationshipName": "asocadmin2",
+      "relationshipName": "datesocietate",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "domiciliul",
+      "otherEntityRelationshipName": "asocadmin3",
+      "relationshipName": "domiciliul",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dateAsociati",
+      "otherEntityRelationshipName": "asocadmin4",
+      "relationshipName": "dateasociati",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "srl",
+      "otherEntityRelationshipName": "asocadmin",
+      "relationshipName": "srl",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

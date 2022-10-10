@@ -1,0 +1,102 @@
+{
+  "applications": "*",
+  "changelogDate": "20221010112012",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "srl",
+  "fields": [
+    {
+      "fieldName": "nume1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nume2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nume3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeSocietate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nuneFinal",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dataInregistrare",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "telefon",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "srlFinalizat",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "logatCu",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Srl",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "asocAdmin",
+      "otherEntityRelationshipName": "srl",
+      "relationshipName": "asocadmin",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "capitalSocial",
+      "otherEntityRelationshipName": "srl1",
+      "relationshipName": "capitalsocial",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "alteActivitati",
+      "otherEntityRelationshipName": "srl2",
+      "relationshipName": "alteactivitati",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activitatiPrincipale",
+      "otherEntityRelationshipName": "srl3",
+      "relationshipName": "activitatiprincipale",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activitatiSecundare",
+      "otherEntityRelationshipName": "srl5",
+      "relationshipName": "activitatisecundare",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "sediul",
+      "otherEntityRelationshipName": "srl4",
+      "relationshipName": "sediu",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "sumaIncasata",
+      "otherEntityRelationshipName": "srl5",
+      "relationshipName": "sumaincasata",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

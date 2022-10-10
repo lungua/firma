@@ -1,0 +1,162 @@
+<div>
+  <h2 id="page-heading" data-cy="BuletinHeading">
+    <span>Buletins</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-buletin"
+        [routerLink]="['/buletin/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Buletin </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="buletins?.length === 0">
+    <span>No Buletins found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="buletins && buletins.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tip">
+            <div class="d-flex">
+              <span>Tip</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="serie">
+            <div class="d-flex">
+              <span>Serie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numar">
+            <div class="d-flex">
+              <span>Numar</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cnp">
+            <div class="d-flex">
+              <span>Cnp</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tara">
+            <div class="d-flex">
+              <span>Tara</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="judet">
+            <div class="d-flex">
+              <span>Judet</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localitate">
+            <div class="d-flex">
+              <span>Localitate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cetatenie">
+            <div class="d-flex">
+              <span>Cetatenie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="data">
+            <div class="d-flex">
+              <span>Data</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eliberatDe">
+            <div class="d-flex">
+              <span>Eliberat De</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="asocadmin1.id">
+            <div class="d-flex">
+              <span>Asocadmin 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let buletin of buletins; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/buletin', buletin.id, 'view']">{{ buletin.id }}</a>
+          </td>
+          <td>{{ buletin.tip }}</td>
+          <td>{{ buletin.serie }}</td>
+          <td>{{ buletin.numar }}</td>
+          <td>{{ buletin.cnp }}</td>
+          <td>{{ buletin.tara }}</td>
+          <td>{{ buletin.judet }}</td>
+          <td>{{ buletin.localitate }}</td>
+          <td>{{ buletin.cetatenie }}</td>
+          <td>{{ buletin.data | formatMediumDatetime }}</td>
+          <td>{{ buletin.eliberatDe }}</td>
+          <td>
+            <div *ngIf="buletin.asocadmin1">
+              <a [routerLink]="['/asoc-admin', buletin.asocadmin1.id, 'view']">{{ buletin.asocadmin1.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/buletin', buletin.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/buletin', buletin.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(buletin)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity DateSocietate.
+    -->
+    <changeSet id="20221010112016-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="asocadmin2_id"
+                                 baseTableName="date_societate"
+                                 constraintName="fk_date_societate__asocadmin2_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asoc_admin"/>
+    </changeSet>
+</databaseChangeLog>

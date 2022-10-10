@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="alteActivitati">
+      <h2 data-cy="alteActivitatiDetailsHeading"><span>Alte Activitati</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ alteActivitati.id }}</span>
+        </dd>
+        <dt><span>Cod CAEN</span></dt>
+        <dd>
+          <span>{{ alteActivitati.codCAEN }}</span>
+        </dd>
+        <dt><span>Denumirea</span></dt>
+        <dd>
+          <span>{{ alteActivitati.denumirea }}</span>
+        </dd>
+        <dt><span>Srl 2</span></dt>
+        <dd>
+          <div *ngIf="alteActivitati.srl2">
+            <a [routerLink]="['/srl', alteActivitati.srl2.id, 'view']">{{ alteActivitati.srl2.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/alte-activitati', alteActivitati.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
