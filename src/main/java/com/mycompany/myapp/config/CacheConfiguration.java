@@ -48,6 +48,37 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Srl.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Srl.class.getName() + ".asocadmins");
+            createCache(cm, com.mycompany.myapp.domain.Srl.class.getName() + ".capitalsocials");
+            createCache(cm, com.mycompany.myapp.domain.Srl.class.getName() + ".alteactivitatis");
+            createCache(cm, com.mycompany.myapp.domain.Srl.class.getName() + ".activitatiprincipales");
+            createCache(cm, com.mycompany.myapp.domain.Srl.class.getName() + ".activitatisecundares");
+            createCache(cm, com.mycompany.myapp.domain.Srl.class.getName() + ".sedius");
+            createCache(cm, com.mycompany.myapp.domain.AsocAdmin.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.AsocAdmin.class.getName() + ".buletins");
+            createCache(cm, com.mycompany.myapp.domain.AsocAdmin.class.getName() + ".datesocietates");
+            createCache(cm, com.mycompany.myapp.domain.AsocAdmin.class.getName() + ".domiciliuls");
+            createCache(cm, com.mycompany.myapp.domain.AsocAdmin.class.getName() + ".dateasociatis");
+            createCache(cm, com.mycompany.myapp.domain.Buletin.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DateSocietate.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Domiciliul.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DateAsociati.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.CapitalSocial.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.AlteActivitati.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ActivitatiPrincipale.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ActivitatiPrincipale.class.getName() + ".sediulxes");
+            createCache(cm, com.mycompany.myapp.domain.ActivitatiSecundare.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ActivitatiSecundare.class.getName() + ".sediulies");
+            createCache(cm, com.mycompany.myapp.domain.Sediul.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Sediul.class.getName() + ".adresas");
+            createCache(cm, com.mycompany.myapp.domain.Sediul.class.getName() + ".dovadas");
+            createCache(cm, com.mycompany.myapp.domain.Sediul.class.getName() + ".proprietaris");
+            createCache(cm, com.mycompany.myapp.domain.Sediul.class.getName() + ".actprinc1s");
+            createCache(cm, com.mycompany.myapp.domain.Sediul.class.getName() + ".actprinc2s");
+            createCache(cm, com.mycompany.myapp.domain.Adresa.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Dovada.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Proprietari.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

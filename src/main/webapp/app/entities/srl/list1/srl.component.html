@@ -1,0 +1,122 @@
+<div>
+  <h2 id="page-heading" data-cy="SrlHeading">
+    <span>Srls</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-srl"
+        [routerLink]="['/srl/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Srl </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="srls?.length === 0">
+    <span>No Srls found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="srls && srls.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nume1">
+            <div class="d-flex">
+              <span>Nume 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nume2">
+            <div class="d-flex">
+              <span>Nume 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nume3">
+            <div class="d-flex">
+              <span>Nume 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numeSocietate">
+            <div class="d-flex">
+              <span>Nume Societate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nuneFinal">
+            <div class="d-flex">
+              <span>Nune Final</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dataInregistrare">
+            <div class="d-flex">
+              <span>Data Inregistrare</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="inregistratDe.login">
+            <div class="d-flex">
+              <span>Inregistrat De</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let srl of srls; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/srl', srl.id, 'view']">{{ srl.id }}</a>
+          </td>
+          <td>{{ srl.nume1 }}</td>
+          <td>{{ srl.nume2 }}</td>
+          <td>{{ srl.nume3 }}</td>
+          <td>{{ srl.numeSocietate }}</td>
+          <td>{{ srl.nuneFinal }}</td>
+          <td>{{ srl.dataInregistrare | formatMediumDatetime }}</td>
+          <td>
+            {{ srl.inregistratDe?.login }}
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/srl', srl.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/srl', srl.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(srl)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
