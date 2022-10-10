@@ -17,7 +17,36 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112012_added_entity_Srl.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112013_added_entity_SumaIncasata.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112014_added_entity_AsocAdmin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112015_added_entity_Buletin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112016_added_entity_DateSocietate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112017_added_entity_Domiciliul.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112018_added_entity_DateAsociati.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112019_added_entity_CapitalSocial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112020_added_entity_AlteActivitati.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112021_added_entity_ActivitatiPrincipale.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112022_added_entity_ActivitatiSecundare.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112023_added_entity_Sediul.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112024_added_entity_Adresa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112025_added_entity_Dovada.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112026_added_entity_Proprietari.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20221010112013_added_entity_constraints_SumaIncasata.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112014_added_entity_constraints_AsocAdmin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112015_added_entity_constraints_Buletin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112016_added_entity_constraints_DateSocietate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112017_added_entity_constraints_Domiciliul.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112018_added_entity_constraints_DateAsociati.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112019_added_entity_constraints_CapitalSocial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112020_added_entity_constraints_AlteActivitati.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112021_added_entity_constraints_ActivitatiPrincipale.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112022_added_entity_constraints_ActivitatiSecundare.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112023_added_entity_constraints_Sediul.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112024_added_entity_constraints_Adresa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112025_added_entity_constraints_Dovada.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221010112026_added_entity_constraints_Proprietari.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
